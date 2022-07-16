@@ -60,28 +60,6 @@
     <audio src="./Sound/tom.wav" data-key="75"></audio>
     <audio src="./Sound/tink.wav" data-key="76"></audio>
 
-
-    <!-----------  internal javascript  ------------->
-    <script>
-        function playsound(e){
-            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-            if(!audio) return; //return if key is not right
-            audio.currentTime = 0; //return to the zero
-            audio.play(); //playing audio
-            key.classList.add('playing');
-        }
-
-        function removeTransition(e){
-            if(e.propertyName !== 'transform') return;
-            this.classList.remove('playing')
-        }
-
-        const keys = document.querySelectorAll(".key");
-        keys.forEach(key => key.addEventListener('transitionend',removeTransition));
-
-        window.addEventListener('keydown',playsound);
-
-    </script>
+    <script src="./JS/main.js"></script>
 </body>
 </html>
